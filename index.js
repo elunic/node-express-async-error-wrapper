@@ -23,6 +23,8 @@ function asyncErrorWrapper(fn) {
     }
 }
 
-module.exports.asyncErrorWrapper = asyncErrorWrapper;
 // Backwards compatibility
 module.exports = asyncErrorWrapper;
+
+// TS compatibility
+module.exports.asyncErrorWrapper = asyncErrorWrapper;
