@@ -56,6 +56,18 @@ describe('express-async-error-wrapper', function() {
         });
 
 
+        it('should allow for returning values in sync functions', function() {
+            expect(asyncErrorWrapper((req, res, next) => {
+                return 'foo';
+            })(null, null, null)).toEqual('foo');
+        });
+
+        it('should not return values from async functions', function() {
+            expect(asyncErrorWrapper(async (req, res, next) => {
+                return 'foo';
+            })(null, null, null)).toBeUndefined();
+        });
+
         it('should not return an error when no error is thrown', function(done) {
             request(app)
                 .get('/ok')
@@ -160,6 +172,18 @@ describe('express-async-error-wrapper', function() {
             });
         });
 
+
+        it('should allow for returning values in sync functions', function() {
+            expect(asyncErrorWrapper((err, req, res, next) => {
+                return 'foo';
+            })(null, null, null, null)).toEqual('foo');
+        });
+
+        it('should not return values from async functions', function() {
+            expect(asyncErrorWrapper(async (err, req, res, next) => {
+                return 'foo';
+            })(null, null, null, null)).toBeUndefined();
+        });
 
         it('should not return an error when no error is thrown', function(done) {
             request(app)

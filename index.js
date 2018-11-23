@@ -10,6 +10,8 @@ function asyncErrorWrapper(fn) {
 
             if (returnValue && returnValue.catch && typeof returnValue.catch === 'function') {
                 returnValue.catch(next);
+            } else {
+                return returnValue;
             }
         }
     } else {
@@ -18,6 +20,8 @@ function asyncErrorWrapper(fn) {
 
             if (returnValue && returnValue.catch && typeof returnValue.catch === 'function') {
                 returnValue.catch(next);
+            } else {
+                return returnValue;
             }
         }
     }
