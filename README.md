@@ -31,7 +31,9 @@ Examples:
 ##### Regular middlewares:
 ```js
 const app = require('express')();
-const asyncErrorWrapper = require('@elunic/express-async-error-wrapper')();
+const asyncErrorWrapper = require('@elunic/express-async-error-wrapper');
+// In TypeScript:
+// import { asyncErrorWrapper } from '@elunic/express-async-error-wrapper';
 
 app.get('/get1', asyncErrorWrapper(async (req, res) => {
     await new Promise(resolve => setTimeout(resolve, 1));
@@ -53,7 +55,7 @@ app.listen(80);
 ##### Error middlewares:
 ```js
 const app = require('express')();
-const asyncErrorWrapper = require('@elunic/express-async-error-wrapper')();
+const asyncErrorWrapper = require('@elunic/express-async-error-wrapper');
 
 app.get('/get1', asyncErrorWrapper(async (req, res) => {
     await new Promise(resolve => setTimeout(resolve, 1));
