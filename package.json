@@ -1,6 +1,6 @@
 {
   "name": "@elunic/express-async-error-wrapper",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A simple, minimalistic wrapper for Express middlewares that ensures errors from middleware promises are handled properly; correctly wraps non-async functions",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
